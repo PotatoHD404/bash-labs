@@ -18,3 +18,5 @@ echo $letter | write $y1
 done
 ^
 $chmod +x mynewvirus.tmp
+
+exit 0

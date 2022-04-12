@@ -10,3 +10,5 @@ then
 else 
 	echo 'this file not exist'
 fi
+
+exit 0

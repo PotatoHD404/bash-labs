@@ -16,3 +16,5 @@ else
            echo '"-l" to see files in this directory' ;;
         esac
 fi
+
+exit 0

@@ -22,3 +22,5 @@ do
  let s4="$(date '+%S')"
  let s1=$s4
 done
+
+exit 0

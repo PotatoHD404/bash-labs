@@ -1,34 +1,18 @@
 #! /bin/bash
 
-if [[ $# = 2 ]]
-then
-        cd $2
-fi
+for file in "$@"; do
+    if test -d $file; then
+        echo "File $file exists and it is a directory."
+    elif test -L $file; then 
+        echo "File $file exists and it is symbolic reference."
+    elif test -f $file; then 
+        echo "File $file exists and it is an ordinary ${file##*.} file."
+    elif test -p $file; then
+        echo "File $file exists and it is a pipe channel."
+    else 
+        echo "No such file or dirctory."
+    fi
+done
 
-x=` ls -la | grep $1 | cut -c1 `
-y=` ls -la | grep $1 | tr -s ' ' | cut -f2 -d' ' `
-z=` ls -la | grep $1 | tr -s ' ' | cut -f1 -d' ' `
-
-test -e $1
-if [[ $? = 0 ]]
-then
-        if [[ "$x" = - ]]
-        then
-                if [[ "$y" = 1 ]]
-                then
-                        echo $1 is a file
-                else
-                        echo $1 is a link
-                fi
-        else
-                if [[ "$z" = p ]]
-                then
-                        echo $1 is a canal
-                else
-                        echo $1 is a dir
-                fi
-        fi
-else
-        echo no
-fi
+exit 0
 

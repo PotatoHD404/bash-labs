@@ -17,3 +17,5 @@ else
         echo 'bad arguments'
         echo 'next time enter who much numbers you want to sum'
 fi
+
+exit 0

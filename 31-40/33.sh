@@ -14,3 +14,5 @@ done
 banner 'result'
 sort < 5.33.tmp
 rm 5.33.tmp
+
+exit 0

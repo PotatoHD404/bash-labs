@@ -1,22 +1,23 @@
 #! /bin/bash
 
-if test -f $1
-then
-	if test -f $2
-	then 	
-		echo 'input "y" if you want lose info in second data 
-		input "n" if you want add data in the end of second file'
-		read x
-		if [ "$x" = "y" ]
-		then 
-			cat  $1 > $2 
-		else
-			cat $1 >> $2
-		fi
-	else
-		echo "file $2 not exist"
-	fi
-else
-	echo "file $1 not exist"
+if [[ ! -f "$2" ]]; then
+    > "$2"
+    cp "$1" "$2"
+else 
+    echo "Input r to copy the contents of file "$1" to file "$2" with rewriting the file "$2""
+    echo "Input e to write the contents of the file "$1" to the end of the file "$2""
+    read choice
+    case $choice in
+        r) 
+            cat "$1" | tee > "$2"
+        ;;
+        e)
+            cat "$1" | tee >> "$2"
+        ;;
+        *) 
+            echo "No such option provided"
+        ;;
+    esac
 fi
-		
+
+exit 0

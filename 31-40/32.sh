@@ -17,3 +17,5 @@ cat 5.32.tmp
 rm 5.32.tmp
 ^
 $chmod +x 5.32
+
+exit 0

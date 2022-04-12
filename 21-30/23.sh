@@ -1,25 +1,24 @@
 #! /bin/bash
 
-echo 'do you want look this catalog:
-input "y" if ypu want
-input "n" if you want choice another'
-read x
-if [ "$x" = "y" ]
-then 
-	ls 
-else
-	if [ "$x" = "n" ]
-	then 
-		echo 'input full way to directory'
-		read y
-		ls $y > test5.23
-		if [ "$?" -eq 0 ] 
-		then
-			cat < test5.23
-		else
-			echo 'directory not exist'
-		fi
-	else
-		echo 'bad input data'
-	fi
+echo "Input y if your want to display the contents of this directory."
+echo "otherwise input n."
+echo -n "> "
+
+read agree
+
+if [[ $agree == "y" ]]; then 
+    echo
+    ls .
+else 
+    echo "Input the path of the directory you want to view:"
+    echo -n "> "
+    read dir
+    echo 
+    if [[ ! -d "$dir" ]]; then 
+        echo "Error: No such directory!"
+    else
+        ls $dir
+    fi
 fi
+
+exit 0

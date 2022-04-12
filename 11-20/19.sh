@@ -1,27 +1,24 @@
 #! /bin/bash
 
-echo 'input 3 names'
-touch names5.19
-rm names5.19
-touch names5.19
-read x
-x=$x' '
-while [ -n "$x" ]
-do
-        echo ${x%%' '*}>>names5.19
-        x=${x#*' '}
+echo "Input three your names:"
+read names
+array=($(echo $names | tr " " "\n"))
+
+printf '%s\n' "${array[@]:0:3}" | sort
+
+len=0
+for name in "${array[@]}"; do
+    len=$(($len + 1))
 done
-let number="$(wc -l < names5.19)"
-if [ $number -eq 3 ]
-then
-        sort names5.19
-else
-        if [ $number -gt 3 ]
-        then
-		echo $number ' -it is number of all names'
-                let number=$number-3
-                echo 'extra> '
-                tail -$number names5.19
-        fi
+
+if [[ len -gt 3 ]]; then 
+    echo "There are $(($len - 3)) extra names!"
+    start=3
+
+    while [[ $start -lt $len ]]; do
+        echo "extra> ${array[start]}"
+        start=$(($start + 1))
+    done
 fi
 
+exit 0

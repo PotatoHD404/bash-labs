@@ -56,3 +56,5 @@ do
  fi
  s1=$(date '+%S')
 done
+
+exit 0
