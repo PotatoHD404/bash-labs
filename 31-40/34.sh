@@ -1,22 +1,19 @@
 #! /bin/bash
 
-$cat > mynewvirus.tmp
-who | tr -s ' ' | cut -f1 -d' ' > virus.tmp 
-var1=$(wc -l < virus.tmp) 
-let z=var1 
+who | tr -s ' ' | cut -f1 -d' ' > tmp 
+x=$(wc -l < tmp) 
+let z=$x 
 echo 'input' 
-read letter 
+read message 
 while [ "$z" -gt 0 ] 
 do 
-y=$(tail -1 virus.tmp) 
-y1=${y}' ' 
-y1=${y1%%' '} 
-let z=z-1 
-head -$z virus.tmp > virus2.tmp 
-cat virus2.tmp > virus.tmp 
-echo $letter | write $y1 
+    y=$(tail -1 tmp) 
+    y1=${y}' ' 
+    y1=${y1%%' '} 
+    let z=$z-1 
+    head -$z tmp > tmp2 
+    cat tmp2 > tmp 
+    echo $message | write $y1 
 done
-^
-$chmod +x mynewvirus.tmp
 
 exit 0
