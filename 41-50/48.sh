@@ -1,10 +1,8 @@
 #! /bin/bash
 
-cd $1
-du -a|sort -rn|head -n1|tr -s ' '>tmp48
-x=$(cut -f2 -d" " tmp3)
+du -all | sort -rn | head -n1 | tr -s ' '>tmp48
+x=$(cut -f2 -d" " tmp48)
 echo $PWD/$x
-rm tmp3
-cd $HOME
+rm tmp48
 
 exit 0

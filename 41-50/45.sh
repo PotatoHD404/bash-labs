@@ -1,15 +1,8 @@
 #! /bin/bash
 
-ls>list45
-grep \.txt list45|cut -f1 -d"." >tmp45
-rm list45
-x=$(wc -l < tmp45)
-while [ "$x" -gt 0 ] 
+for i in `find . -name "*.txt"`
 do 
-y=$(head -n$x tmp45|tail -1)
-mv $y.txt $y.doc
-let x=x-1
+    mv $i $(ls $i|sed -e 's/\.txt//').doc
 done
-rm tmp45
 
 exit 0
