@@ -2,8 +2,6 @@
 
 echo 'you should input words, if you want to end you should input "end"'
 touch 5.33.tmp
-rm 5.33.tmp
-touch 5.33.tmp
 read x
 while [ "$x" != "end" ]
 do
@@ -11,7 +9,7 @@ do
 	echo 'input again'
 	read x
 done
-banner 'result'
+echo '------'
 sort < 5.33.tmp
 rm 5.33.tmp
 
