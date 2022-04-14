@@ -1,6 +1,5 @@
 #! /bin/bash
 
-cat>42
 echo enter first
 read f
 echo enter last
