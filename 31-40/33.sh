@@ -1,16 +1,27 @@
 #! /bin/bash
 
-echo 'you should input words, if you want to end you should input "end"'
-touch 5.33.tmp
-read x
-while [ "$x" != "end" ]
-do
-	echo $x >>5.33.tmp
-	echo 'input again'
-	read x
+stop="end"
+echo "Input your word:"
+echo -n "> "
+output=
+read word
+
+while [[ $word != $stop ]]; do
+    output+="$word "
+    echo -n "> "
+    read word
 done
-echo '------'
-sort < 5.33.tmp
-rm 5.33.tmp
+
+IFS=' ' read -ra array <<< "$output"
+
+IFS=$'\n' sorted=($(sort <<<"${array[*]}"))
+
+echo "The alphabetical order of your words is:"
+
+for w in ${sorted[@]}; do
+    echo -n "$w "
+done
+
+echo
 
 exit 0

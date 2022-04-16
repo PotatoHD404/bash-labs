@@ -1,16 +1,18 @@
 #! /bin/bash
 
-echo 'you should input words, if you want to end you should input "end"'
-touch 5.32.tmp
-read x
-while [ "$x" != "end" ]
-do
-	echo $x >>5.32.tmp
-	echo 'input again'
-	read x
+stop="end"
+echo "Input your word:"
+echo -n "> "
+output=
+read word
+
+while [[ $word != $stop ]]; do
+    output+="$word "
+    echo -n "> "
+    read word
 done
-echo '--------'
-cat 5.32.tmp
-rm 5.32.tmp
+
+echo "Your words are:"
+echo $output
 
 exit 0
