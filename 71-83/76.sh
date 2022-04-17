@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./76.sh
+./virus3.sh
 
 exit 0
 
