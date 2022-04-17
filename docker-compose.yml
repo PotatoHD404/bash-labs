@@ -1,0 +1,18 @@
+version: "3"
+services:
+  openssh-server:
+    image: lscr.io/linuxserver/openssh-server
+    container_name: openssh-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Moscow
+      - SUDO_ACCESS=false #optional
+      - PASSWORD_ACCESS=true #optional
+      - USER_PASSWORD=password #optional
+      - USER_NAME=linuxserver.io #optional
+    volumes:
+      - D:\ssh\data:/config
+    ports:
+      - 23:2222
+    restart: unless-stopped

@@ -14,7 +14,7 @@ read choice
 
 while [[ $choice != q ]]; do
     case $choice in 
-        w)
+        "-w")
             echo "Input the user name:"
             echo -n "> "
             read name
@@ -24,7 +24,7 @@ while [[ $choice != q ]]; do
 
             phone_base+=(["$name"]="$number")
         ;;
-        s)
+        "-s")
             echo "Input the user you want to search."
             read user
             for usr in ${!phone_base[@]}; do
@@ -36,14 +36,14 @@ while [[ $choice != q ]]; do
                 fi
             done
         ;;
-        r)
+        "-r")
             echo "Input the user you wanna remove:"
             echo -n "> "
             read name
 
             unset phone_base["$name"]
         ;;
-        c)
+        "-c")
             echo "Input the user you wanna change the number of."
             echo -n "> "
             read name
@@ -53,7 +53,7 @@ while [[ $choice != q ]]; do
             read number
             phone_base["$name"]="$number"
         ;;
-        q)
+        "-q")
             exit 0
         ;;
     esac

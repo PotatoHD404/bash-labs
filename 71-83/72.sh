@@ -1,14 +1,14 @@
 #! /bin/bash
 
-files=`ls`
-files=($(echo $files | tr " " "\n"))
+files=($(ls | tr " " "\n"))
 
 for file in "${files[@]}"; do 
     for chr in $@; do
-        if [[ "$file" == *"$chr"* ]]; then 
-            wc -l "$file"
+        if [[ "$file" == *"$chr"* ]]; then
+            length=($(wc -l "$file" | sed "s/ $file//"))
+            echo "$file: $length"
         else 
-            continue
+            break
         fi
     done
 done

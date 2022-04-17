@@ -2,9 +2,9 @@
 
 who | tr -s ' ' | cut -f1 -d' ' > tmp 
 x=$(wc -l < tmp) 
-let z = $x 
+let z=$x 
 echo 'input' 
-read message 
+read message
 while [ "$z" -gt 0 ] 
 do 
     y=$(tail -n1 tmp) 
