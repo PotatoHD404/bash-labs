@@ -1,11 +1,12 @@
 #! /bin/bash
 
 sleep 20
-who|grep $1
+who | grep $1
 if (test "$?" = "0")
 then
-    date>newuserdate
-    sleep 20;who|grep $1
+    date > newuserdate
+    sleep 20
+    who | grep $1
     if (test "$?" != "0")
     then
         date>>newuserdate
