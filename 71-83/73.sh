@@ -4,11 +4,11 @@ declare -A phone_base
 
 echo "Input the option you wanna use:"
 
-echo "Input w to start adding the user and their phone number."
-echo "Input s to start search of the phone number by user name."
-echo "Input r to remove user and his phone number from the rhone book."
-echo "Input c to change user's phone number."
-echo "Input q to quit."
+echo "Input -w to start adding the user and their phone number."
+echo "Input -s to start search of the phone number by user name."
+echo "Input -r to remove user and his phone number from the rhone book."
+echo "Input -c to change user's phone number."
+echo "Input -q to quit."
 
 read choice
 
