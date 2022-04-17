@@ -1,20 +1,18 @@
 #! /bin/bash
 
-echo 'we will sum 5 numbers'
-echo 'input 5 numbers'
-z=0
-for x in 1 2 3 4 5
-do
-	read y
-	let z=$z+$y	
+echo "Input 5 numbers:"
+
+counter=0
+sum=0
+
+while [[ counter -lt 5 ]]; do
+    echo -n "> "
+    read num
+
+    sum=$(($sum + $num))
+    counter=$(($counter + 1))
 done
-echo " sum is equal $z " 
 
-
-
-
-________________
-��� �������� 'y' �� �����
-=>  ��� ������ �� ������
+echo "The sum of your numbers is $sum"
 
 exit 0

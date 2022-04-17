@@ -1,7 +1,14 @@
 #! /bin/bash
 
-mkdir programm
-mv $1 ./programm
-chmod +x ./programm/$1
+if ! [ -e ~/programm ]
+then
+    mkdir ~/programm
+fi
+
+for (( i=$#;i>0;i-- ));do
+    mv "${!i}" ~/programm
+    chmod +x ~/programm/$(basename ${!i})
+    echo 
+done
 
 exit 0
