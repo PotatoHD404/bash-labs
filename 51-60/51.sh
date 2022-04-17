@@ -1,14 +1,19 @@
 #! /bin/bash
 
-mkdir programm
-touch programm_list
+if ! [ -e ~/programm ]
+then
+    mkdir ~/programm
+fi
+
+touch ~/programm/.programm_list
+
 if (test "$1" = "-a")
 then
-cat programm_list
+    cat ~/programm/.programm_list
 else
-mv $1 ./programm
-chmod +x ./programm/$1
-echo $1>>programm_list
+    mv $1 ~/programm/$2
+    chmod +x ~/programm/$2
+    echo $2 >> ~/programm/.programm_list
 fi
 
 exit 0

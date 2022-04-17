@@ -1,18 +1,24 @@
 #! /bin/bash
 
-cat>52
+if ! [ -e ~/programm ]
+then
+    mkdir ~/programm
+fi
+
+touch ~/programm/.programm_list
+
 case $1 in
 "-a")
-cat programm_list
+cat ~/programm/.programm_list
 ;;
 "-d")
-rm ./programm/$1
-sed "/$1/d" "programm_list"
+rm -f ~/programm/$2
+sed "s/$2//" "$HOME/programm/.programm_list" > ~/programm/.programm_list
 ;;
 "-n")
-mv $1 ./programm
-chmod +x ./programm/$1
-echo $1>>programm_list
+mv $2 ~/programm/$3
+chmod +x ~/programm/$3
+echo $3 >> ~/programm/.programm_list
 ;;
 esac
 
