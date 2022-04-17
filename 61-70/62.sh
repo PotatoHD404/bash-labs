@@ -1,21 +1,21 @@
 #! /bin/bash
 
-max=a
-touch tmp62
-find $1 -ls|grep $2 >tmp62
-x=$(wc -l<tmp62)
-while (test "$x" -gt "0")
+max=""
+folder=$1
+shift
+for user in $*
 do
-y=$(head -n$x tmp62|tail -1)
-z=$(echo $y|sed s/[^/]//g|wc -c)
-a=$(echo $y|cut -f$z -d"/")
-if (test "${#a}" -gt "${#max}" )
-then
-max=$a
-fi
-let x=x-1
+    files=`find $folder -type f -user $user`
+    for x in $files
+    do
+        x="${x:2}"
+        if (test "${#x}" -gt "${#max}" )
+        then
+            max=$x
+        fi
+    done
 done
+
 echo $max
-rm tmp62
 
 exit 0
